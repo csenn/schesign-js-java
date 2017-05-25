@@ -1,0 +1,52 @@
+public class Class3 {
+
+  public class B {
+
+    private Class2 e;
+
+    public Class2 getE() {
+      return e;
+    };
+
+    public void setE(Class2 val) {
+      e = val;
+    };
+  }
+
+  private Class1 a;
+  private B b;
+  private Class1 c;
+  private Class4 d;
+
+  public Class1 getA() {
+    return a;
+  };
+
+  public B getB() {
+    return b;
+  };
+
+  public Class1 getC() {
+    return c;
+  };
+
+  public Class4 getD() {
+    return d;
+  };
+
+  public void setA(Class1 val) {
+    a = val;
+  };
+
+  public void setB(B val) {
+    b = val;
+  };
+
+  public void setC(Class1 val) {
+    c = val;
+  };
+
+  public void setD(Class4 val) {
+    d = val;
+  };
+}

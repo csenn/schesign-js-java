@@ -1,0 +1,12 @@
+public class Class_a {
+
+  private String property_a;
+
+  public String getProperty_a() {
+    return property_a;
+  };
+
+  public void setProperty_a(String val) {
+    property_a = val;
+  };
+}

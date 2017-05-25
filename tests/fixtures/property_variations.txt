@@ -1,0 +1,339 @@
+import java.util.Date;
+
+public enum D {
+  one,
+  two,
+  3,
+  4.5
+}
+
+public class Class1 {
+
+  public class F {
+
+    public class F1 {
+
+      private boolean a;
+
+      public F1 (boolean initA) {
+         a = initA;
+      };
+
+      public boolean getA() {
+        return a;
+      };
+
+      public void setA(boolean val) {
+        a = val;
+      };
+    }
+
+    private boolean a;
+    private F1 f1;
+
+    public F (boolean initA, F1 initF1) {
+       a = initA;
+       f1 = initF1;
+    };
+
+    public boolean getA() {
+      return a;
+    };
+
+    public F1 getF1() {
+      return f1;
+    };
+
+    public void setA(boolean val) {
+      a = val;
+    };
+
+    public void setF1(F1 val) {
+      f1 = val;
+    };
+  }
+
+  private boolean a;
+  private boolean a1;
+  private boolean a2;
+  private boolean a3;
+  private boolean a4;
+  private boolean a5;
+  private boolean a6;
+  private String b;
+  private String b1;
+  private String b2;
+  private String b3;
+  private String b4;
+  private String b5;
+  private float c;
+  private float c1;
+  private int c2;
+  private byte c3;
+  private short c4;
+  private int c5;
+  private long c6;
+  private float c7;
+  private double c8;
+  private D d;
+  private Date e;
+  private Date e1;
+  private Date e2;
+  private F f;
+  private Class2 g;
+
+  public Class1 (boolean initA, boolean initA1, boolean initA2, boolean initA3, boolean initA4, boolean initA5, boolean initA6, String initB, String initB1, String initB2, String initB3, String initB4, String initB5, float initC, float initC1, int initC2, byte initC3, short initC4, int initC5, long initC6, float initC7, double initC8, D initD, Date initE, Date initE1, Date initE2, F initF, Class2 initG) {
+     a = initA;
+     a1 = initA1;
+     a2 = initA2;
+     a3 = initA3;
+     a4 = initA4;
+     a5 = initA5;
+     a6 = initA6;
+     b = initB;
+     b1 = initB1;
+     b2 = initB2;
+     b3 = initB3;
+     b4 = initB4;
+     b5 = initB5;
+     c = initC;
+     c1 = initC1;
+     c2 = initC2;
+     c3 = initC3;
+     c4 = initC4;
+     c5 = initC5;
+     c6 = initC6;
+     c7 = initC7;
+     c8 = initC8;
+     d = initD;
+     e = initE;
+     e1 = initE1;
+     e2 = initE2;
+     f = initF;
+     g = initG;
+  };
+
+  public boolean getA() {
+    return a;
+  };
+
+  public boolean getA1() {
+    return a1;
+  };
+
+  public boolean getA2() {
+    return a2;
+  };
+
+  public boolean getA3() {
+    return a3;
+  };
+
+  public boolean getA4() {
+    return a4;
+  };
+
+  public boolean getA5() {
+    return a5;
+  };
+
+  public boolean getA6() {
+    return a6;
+  };
+
+  public String getB() {
+    return b;
+  };
+
+  public String getB1() {
+    return b1;
+  };
+
+  public String getB2() {
+    return b2;
+  };
+
+  public String getB3() {
+    return b3;
+  };
+
+  public String getB4() {
+    return b4;
+  };
+
+  public String getB5() {
+    return b5;
+  };
+
+  public float getC() {
+    return c;
+  };
+
+  public float getC1() {
+    return c1;
+  };
+
+  public int getC2() {
+    return c2;
+  };
+
+  public byte getC3() {
+    return c3;
+  };
+
+  public short getC4() {
+    return c4;
+  };
+
+  public int getC5() {
+    return c5;
+  };
+
+  public long getC6() {
+    return c6;
+  };
+
+  public float getC7() {
+    return c7;
+  };
+
+  public double getC8() {
+    return c8;
+  };
+
+  public D getD() {
+    return d;
+  };
+
+  public Date getE() {
+    return e;
+  };
+
+  public Date getE1() {
+    return e1;
+  };
+
+  public Date getE2() {
+    return e2;
+  };
+
+  public F getF() {
+    return f;
+  };
+
+  public Class2 getG() {
+    return g;
+  };
+
+  public void setA(boolean val) {
+    a = val;
+  };
+
+  public void setA1(boolean val) {
+    a1 = val;
+  };
+
+  public void setA2(boolean val) {
+    a2 = val;
+  };
+
+  public void setA3(boolean val) {
+    a3 = val;
+  };
+
+  public void setA4(boolean val) {
+    a4 = val;
+  };
+
+  public void setA5(boolean val) {
+    a5 = val;
+  };
+
+  public void setA6(boolean val) {
+    a6 = val;
+  };
+
+  public void setB(String val) {
+    b = val;
+  };
+
+  public void setB1(String val) {
+    b1 = val;
+  };
+
+  public void setB2(String val) {
+    b2 = val;
+  };
+
+  public void setB3(String val) {
+    b3 = val;
+  };
+
+  public void setB4(String val) {
+    b4 = val;
+  };
+
+  public void setB5(String val) {
+    b5 = val;
+  };
+
+  public void setC(float val) {
+    c = val;
+  };
+
+  public void setC1(float val) {
+    c1 = val;
+  };
+
+  public void setC2(int val) {
+    c2 = val;
+  };
+
+  public void setC3(byte val) {
+    c3 = val;
+  };
+
+  public void setC4(short val) {
+    c4 = val;
+  };
+
+  public void setC5(int val) {
+    c5 = val;
+  };
+
+  public void setC6(long val) {
+    c6 = val;
+  };
+
+  public void setC7(float val) {
+    c7 = val;
+  };
+
+  public void setC8(double val) {
+    c8 = val;
+  };
+
+  public void setD(D val) {
+    d = val;
+  };
+
+  public void setE(Date val) {
+    e = val;
+  };
+
+  public void setE1(Date val) {
+    e1 = val;
+  };
+
+  public void setE2(Date val) {
+    e2 = val;
+  };
+
+  public void setF(F val) {
+    f = val;
+  };
+
+  public void setG(Class2 val) {
+    g = val;
+  };
+}
