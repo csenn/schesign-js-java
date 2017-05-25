@@ -1,13 +1,3 @@
-import values from 'lodash/values'
-
-const INTS = [
-  'Int',
-  'Int8',
-  'Int16',
-  'Int32',
-  'Int64'
-]
-
 const captializeFirstLetter = str => str.charAt(0).toUpperCase() + str.slice(1)
 
 const getTab = num => {
@@ -65,7 +55,6 @@ function _getType (context, property, depth) {
       return _fromLinkedClassType(context, range.ref)
     case 'NestedObject':
       return _fromNestedObjectType(context, property)
-    // case 'Text':
     default:
       return 'AAAA'
   }
@@ -92,9 +81,18 @@ function _buildConstructor (mainLabel, constructorParams, depth) {
   return text
 }
 
-export function _generateJavaClass (context, label, propertySpecs, depth = 1) {
+export function _generateJavaClass (context, label, propertySpecs, parentLabel, depth = 1, paths = []) {
+  if (paths.includes(label)) {
+    return
+  }
+  paths.push(label)
+
   const mainLabel = captializeFirstLetter(label)
-  let text = `${getTab(depth - 1)}public class ${mainLabel} {\n`
+  let text = `${getTab(depth - 1)}public class ${mainLabel}`
+  if (parentLabel) {
+    text += ` extends ${parentLabel}`
+  }
+  text += ' {\n'
 
   var elements = {
     nestedClasses: [],
@@ -110,19 +108,24 @@ export function _generateJavaClass (context, label, propertySpecs, depth = 1) {
     const capitalLabel = captializeFirstLetter(label)
 
     if (property.range.type === 'NestedObject') {
-      elements.nestedClasses.push(_generateJavaClass(
+      const el = _generateJavaClass(
         context,
         property.label,
         property.range.propertySpecs,
-        depth + 1
-      ))
+        null,
+        depth + 1,
+        paths
+      )
+      if (el) {
+        elements.nestedClasses.push(el)
+      }
     }
 
     let type = _getType(context, property)
 
     elements.private.push(`${getTab(depth)}private ${type} ${property.label}`)
 
-    elements.constructorParams.push({ type, label: property.label})
+    elements.constructorParams.push({type, label: property.label})
 
     let getStr = `${getTab(depth)}public ${type} get${capitalLabel}() {\n`
     getStr += `${getTab(depth + 1)}return ${label};\n`
@@ -173,15 +176,18 @@ export function generateFromClass (graph, classUid, opts = {}) {
     }
   })
 
-  /* TODO: make this optional, use graphql interfaces */
-  // flattenHierarchies(context)
-
   const currentClass = context.classCache[classUid]
   if (!currentClass) {
     throw new Error(`Could not find class ${classUid} in graph`)
   }
 
-  let text = _generateJavaClass(context, currentClass.label, currentClass.propertySpecs)
+  let parentLabel = null
+  if (currentClass.subClassOf) {
+    parentLabel = captializeFirstLetter(context.classCache[currentClass.subClassOf].label)
+  }
+
+  let text = _generateJavaClass(context, currentClass.label, currentClass.propertySpecs, parentLabel)
+
   const enumKeys = Object.keys(context.enums)
   if (enumKeys.length) {
     enumKeys.forEach(key => {
@@ -194,11 +200,4 @@ export function generateFromClass (graph, classUid, opts = {}) {
   }
 
   return text
-
-  // const combined = [
-  //   ...values(context.enums),
-  //   ...values(context.types)
-  // ]
-
-  // return combined.join('\n\n')
 }

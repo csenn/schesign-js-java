@@ -1,7 +1,16 @@
-type class5 {
-  e: String
-  a: Boolean
-  d: String
-  c: String
-  b: String
+public class Class5 extends Class4 {
+
+  private String e;
+
+  public Class5 (String initE) {
+     e = initE;
+  };
+
+  public String getE() {
+    return e;
+  };
+
+  public void setE(String val) {
+    e = val;
+  };
 }

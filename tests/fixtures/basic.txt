@@ -2,6 +2,10 @@ public class Class_a {
 
   private String property_a;
 
+  public Class_a (String initProperty_a) {
+     property_a = initProperty_a;
+  };
+
   public String getProperty_a() {
     return property_a;
   };

@@ -21,7 +21,7 @@ describe('generateFromClass()', () => {
     expect(str).to.deep.equal(readSql('basic.txt'))
   })
 
-  it.skip('should convert recursion to a java class', () => {
+  it('should convert recursion to a java class', () => {
     const str = generateFromClass(
       recursion.graph,
       'o/tests/recursion/master/class/class1'
@@ -45,11 +45,11 @@ describe('generateFromClass()', () => {
     expect(str).to.deep.equal(readSql('linked_nodes.txt'))
   })
 
-  // it('should convert inheritance to a java class', () => {
-  //   const str = generateFromClass(
-  //     inheritanceChain2.graph,
-  //     'o/tests/inheritance_chain_2/master/class/class5'
-  //   )
-  //   expect(str).to.deep.equal(readSql('inheritance.txt'))
-  // })
+  it('should convert inheritance to a java class', () => {
+    const str = generateFromClass(
+      inheritanceChain2.graph,
+      'o/tests/inheritance_chain_2/master/class/class5'
+    )
+    expect(str).to.deep.equal(readSql('inheritance.txt'))
+  })
 })

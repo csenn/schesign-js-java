@@ -4,6 +4,10 @@ public class Class3 {
 
     private Class2 e;
 
+    public B (Class2 initE) {
+       e = initE;
+    };
+
     public Class2 getE() {
       return e;
     };
@@ -17,6 +21,13 @@ public class Class3 {
   private B b;
   private Class1 c;
   private Class4 d;
+
+  public Class3 (Class1 initA, B initB, Class1 initC, Class4 initD) {
+     a = initA;
+     b = initB;
+     c = initC;
+     d = initD;
+  };
 
   public Class1 getA() {
     return a;
